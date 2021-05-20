@@ -81,18 +81,18 @@ const RegisterScreen = () => {
 	const [open, setOpen] = useState(false);
 	const [loading, setLoading] = useState(false);
 
-	// const validateName = () => {
-	// 	const regex = /[A-Za-z0-9]/;
-	// 	console.log(regex.test(name));
-	// 	if (name && regex.test(name)) {
-	// 		setNameError(false);
-	// 		return false;
-	// 	} else {
-	// 		setNameError(true);
-	// 		setNameErrorMessage('The username must not have any special characters');
-	// 		return true;
-	// 	}
-	// };
+	const validateName = () => {
+		const regex = /^[a-zA-Z0-9 ]*$/gm;
+		if (name && regex.test(name)) {
+			setNameErrorMessage('');
+			setNameError(false);
+			return false;
+		} else {
+			setNameError(true);
+			setNameErrorMessage('The username must not have any special characters');
+			return true;
+		}
+	};
 
 	const validatePassword = () => {
 		let passwordMinLength = 8;
@@ -135,6 +135,9 @@ const RegisterScreen = () => {
 
 	const onSubmitHandler = async (e) => {
 		e.preventDefault();
+		if (validateName()) {
+			return;
+		}
 		if (validateEmail()) {
 			return;
 		}

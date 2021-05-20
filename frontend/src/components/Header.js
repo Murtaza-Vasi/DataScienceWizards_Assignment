@@ -8,11 +8,16 @@ import {
 } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
+	appBar: {
+		backgroundColor: '#2C5476',
+	},
 	title: {
 		flexGrow: 1,
+		fontSize: '16px',
 	},
 	btn: {
 		color: '#fff',
+		fontSize: '15px',
 	},
 }));
 
@@ -25,10 +30,10 @@ const Header = () => {
 
 	return (
 		<div>
-			<AppBar position='static'>
+			<AppBar position='static' className={classes.appBar}>
 				<Toolbar>
 					<Typography variant='h6' className={classes.title}>
-						Demo
+						DATA SCIENCE WIZARDS
 					</Typography>
 					<Button className={classes.btn} onClick={onClickHandler}>
 						Logout

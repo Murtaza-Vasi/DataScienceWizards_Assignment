@@ -22,9 +22,22 @@ const useStyles = makeStyles((theme) => ({
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
+	imgContainer: {
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
 	image: {
 		width: '650px',
 		height: '450px',
+		[theme.breakpoints.up('xs')]: {
+			width: '350px',
+			height: '250px',
+		},
+		[theme.breakpoints.up('md')]: {
+			width: '650px',
+			height: '450px',
+		},
 	},
 	title: {
 		fontWeight: 'bold',
@@ -44,6 +57,9 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: 'center',
 		justifyContent: 'center',
 		flexDirection: 'column',
+		[theme.breakpoints.up('xs')]: {
+			margin: theme.spacing(2),
+		},
 	},
 	link: {
 		textDecoration: 'none',
@@ -137,12 +153,12 @@ const LoginScreen = () => {
 	return (
 		<div className={classes.root}>
 			<Grid container justify='center' alignItems='center' spacing={4}>
-				<Grid item xs={12} lg={6}>
-					<Container>
+				<Grid item xs={12} md={6}>
+					<Container className={classes.imgContainer}>
 						<img src='images/login.jpg' className={classes.image} alt='Login' />
 					</Container>
 				</Grid>
-				<Grid item xs={12} lg={6} className={classes.formContainer}>
+				<Grid item xs={12} md={6} className={classes.formContainer}>
 					<Typography
 						align='center'
 						variant='h4'
